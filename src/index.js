@@ -6,6 +6,7 @@ import { ApolloProvider } from 'react-apollo';
 import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from "apollo-cache-inmemory"; // eslint-disable-line
+import 'semantic-ui-css/semantic.min.css';
 
 import Routes from './routes';
 import registerServiceWorker from './registerServiceWorker';

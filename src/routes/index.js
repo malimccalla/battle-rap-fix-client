@@ -10,6 +10,7 @@ import {
 
 import Home from './Home';
 import Dashboard from './Dashboard';
+import Login from './auth/Login';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -47,6 +48,7 @@ const Routes = () => (
   <Router>
     <Switch>
       <Route path="/" exact component={Home} />
+      <Route path="/login" exact component={Login} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
     </Switch>
   </Router>
