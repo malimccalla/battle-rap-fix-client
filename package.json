@@ -1,0 +1,45 @@
+{
+  "name": "battle-rap-fix-client",
+  "version": "1.0.0",
+  "description": "React App for Battle Rap Fix",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{js, css, json}": ["eslint src --fix", "git add"]
+  },
+  "dependencies": {
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-scripts": "1.0.17"
+  },
+  "devDependencies": {
+    "babel-eslint": "^8.0.2",
+    "eslint": "^4.11.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.8.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.5.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^5.0.0",
+    "prettier": "^1.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/terrytilley/battle-rap-fix-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/terrytilley/battle-rap-fix-client/issues"
+  },
+  "homepage": "https://github.com/terrytilley/battle-rap-fix-client#readme",
+  "author": "Terry Tilley <terry@terrytilley.com>",
+  "license": "ISC"
+}
