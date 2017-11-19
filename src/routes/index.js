@@ -9,8 +9,9 @@ import {
 } from 'react-router-dom';
 
 import Home from './Home';
-import Dashboard from './Dashboard';
 import Login from './auth/Login';
+import Dashboard from './Dashboard';
+import Register from './auth/Register';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -49,6 +50,7 @@ const Routes = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/login" exact component={Login} />
+      <Route path="/register" exact component={Register} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
     </Switch>
   </Router>

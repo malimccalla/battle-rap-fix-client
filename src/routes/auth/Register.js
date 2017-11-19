@@ -3,13 +3,16 @@ import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 import { Container, Form, Input, Button, Message } from 'semantic-ui-react';
 
-import loginMutation from '../../mutations/login';
+import registerMutation from '../../mutations/register';
 
-class Login extends Component {
+class Register extends Component {
   state = {
+    username: '',
+    usernameError: '',
     email: '',
+    emailError: '',
     password: '',
-    errors: {},
+    passwordError: '',
   };
 
   onChange = e => {
@@ -18,33 +21,40 @@ class Login extends Component {
   };
 
   onSubmit = async () => {
-    const { email, password } = this.state;
-    const response = await this.props.mutate({
-      variables: { email, password },
+    this.setState({
+      usernameError: '',
+      emailError: '',
+      passwordError: '',
     });
 
-    const { ok, token, refreshToken, errors } = response.data.login;
+    const { username, email, password } = this.state;
+    const response = await this.props.mutate({
+      variables: { username, email, password },
+    });
+
+    const { ok, errors } = response.data.register;
 
     if (ok) {
-      localStorage.setItem('token', token);
-      localStorage.setItem('refreshToken', refreshToken);
-      this.props.history.push('/dashboard');
+      this.props.history.push('/login');
     } else {
       const err = {};
       errors.forEach(({ path, message }) => {
         err[`${path}Error`] = message;
       });
 
-      this.setState({ errors: err });
+      this.setState(err);
     }
   };
 
   render() {
     const errorList = [];
     const {
+      username,
       email,
       password,
-      errors: { emailError, passwordError },
+      usernameError,
+      emailError,
+      passwordError,
     } = this.state;
 
     if (emailError) {
@@ -56,8 +66,17 @@ class Login extends Component {
 
     return (
       <Container>
-        <h1>Login</h1>
+        <h1>Register</h1>
         <Form>
+          <Form.Field error={!!usernameError}>
+            <Input
+              type="text"
+              name="username"
+              value={username}
+              placeholder="Username"
+              onChange={this.onChange}
+            />
+          </Form.Field>
           <Form.Field error={!!emailError}>
             <Input
               type="email"
@@ -92,9 +111,9 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
+Register.propTypes = {
   mutate: PropTypes.func.isRequired,
   history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-export default graphql(loginMutation)(Login);
+export default graphql(registerMutation)(Register);
