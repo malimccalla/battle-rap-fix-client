@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import { Container, Form, Input, Button, Message } from 'semantic-ui-react';
+import { Container } from '../../components/Layout';
 
 import loginMutation from '../../mutations/login';
 
@@ -17,7 +17,9 @@ class Login extends Component {
     this.setState({ [name]: value });
   };
 
-  onSubmit = async () => {
+  onSubmit = async e => {
+    e.preventDefault();
+
     const { email, password } = this.state;
     const response = await this.props.mutate({
       variables: { email, password },
@@ -39,6 +41,11 @@ class Login extends Component {
     }
   };
 
+  alerts = errorList => {
+    console.log('errors', errorList);
+    errorList.map(error => <li key={error}>{error}</li>);
+  };
+
   render() {
     const errorList = [];
     const {
@@ -47,46 +54,32 @@ class Login extends Component {
       errors: { emailError, passwordError },
     } = this.state;
 
-    if (emailError) {
-      errorList.push(emailError);
-    }
-    if (passwordError) {
-      errorList.push(passwordError);
-    }
+    if (emailError) errorList.push(emailError);
+    if (passwordError) errorList.push(passwordError);
 
     return (
       <Container>
-        <h1>Login</h1>
-        <Form>
-          <Form.Field error={!!emailError}>
-            <Input
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Email"
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Form.Field error={!!passwordError}>
-            <Input
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Password"
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Button primary onClick={this.onSubmit}>
-            Submit
-          </Button>
-        </Form>
-        {errorList.length ? (
-          <Message
-            error
-            header="There was some errors with your submission"
-            list={errorList}
+        <form onSubmit={this.onSubmit}>
+          <h1>Login</h1>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={this.onChange}
+            error={`${!!emailError}`}
           />
-        ) : null}
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={this.onChange}
+            error={`${!!passwordError}`}
+          />
+          <input type="submit" value="Submit" />
+        </form>
+        <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
       </Container>
     );
   }
