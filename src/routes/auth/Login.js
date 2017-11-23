@@ -41,11 +41,6 @@ class Login extends Component {
     }
   };
 
-  alerts = errorList => {
-    console.log('errors', errorList);
-    errorList.map(error => <li key={error}>{error}</li>);
-  };
-
   render() {
     const errorList = [];
     const {
@@ -59,21 +54,21 @@ class Login extends Component {
 
     return (
       <Container>
+        <h1>Login</h1>
         <form onSubmit={this.onSubmit}>
-          <h1>Login</h1>
           <input
             type="email"
             name="email"
-            placeholder="Email"
             value={email}
+            placeholder="Email"
             onChange={this.onChange}
             error={`${!!emailError}`}
           />
           <input
             type="password"
             name="password"
-            placeholder="Password"
             value={password}
+            placeholder="Password"
             onChange={this.onChange}
             error={`${!!passwordError}`}
           />

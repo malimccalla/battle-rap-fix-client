@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import { Container, Form, Input, Button, Message } from 'semantic-ui-react';
+import { Container } from '../../components/Layout';
 
 import registerMutation from '../../mutations/register';
 
@@ -20,7 +20,9 @@ class Register extends Component {
     this.setState({ [name]: value });
   };
 
-  onSubmit = async () => {
+  onSubmit = async e => {
+    e.preventDefault();
+
     this.setState({
       usernameError: '',
       emailError: '',
@@ -67,45 +69,33 @@ class Register extends Component {
     return (
       <Container>
         <h1>Register</h1>
-        <Form>
-          <Form.Field error={!!usernameError}>
-            <Input
-              type="text"
-              name="username"
-              value={username}
-              placeholder="Username"
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Form.Field error={!!emailError}>
-            <Input
-              type="email"
-              name="email"
-              value={email}
-              placeholder="Email"
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Form.Field error={!!passwordError}>
-            <Input
-              type="password"
-              name="password"
-              value={password}
-              placeholder="Password"
-              onChange={this.onChange}
-            />
-          </Form.Field>
-          <Button primary onClick={this.onSubmit}>
-            Submit
-          </Button>
-        </Form>
-        {errorList.length ? (
-          <Message
-            error
-            header="There was some errors with your submission"
-            list={errorList}
+        <form onSubmit={this.onSubmit}>
+          <input
+            type="text"
+            name="username"
+            value={username}
+            placeholder="Username"
+            onChange={this.onChange}
+            error={`${!!emailError}`}
           />
-        ) : null}
+          <input
+            type="email"
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={this.onChange}
+            error={`${!!usernameError}`}
+          />
+          <input
+            type="password"
+            name="password"
+            value={password}
+            placeholder="Password"
+            onChange={this.onChange}
+            error={`${!!passwordError}`}
+          />
+          <input type="submit" value="Submit" />
+        </form>
       </Container>
     );
   }
