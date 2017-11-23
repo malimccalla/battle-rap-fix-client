@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import { Container } from '../../components/Layout';
+import Input from '../../components/common/Form/Input';
+import { Container } from '../../components/common/Layout';
+import { InputButton } from '../../components/common/Button';
 
 import loginMutation from '../../mutations/login';
 
@@ -56,7 +58,7 @@ class Login extends Component {
       <Container>
         <h1>Login</h1>
         <form onSubmit={this.onSubmit}>
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
@@ -64,7 +66,7 @@ class Login extends Component {
             onChange={this.onChange}
             error={`${!!emailError}`}
           />
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
@@ -72,7 +74,7 @@ class Login extends Component {
             onChange={this.onChange}
             error={`${!!passwordError}`}
           />
-          <input type="submit" value="Submit" />
+          <InputButton primary type="submit" value="Submit" />
         </form>
         <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
       </Container>

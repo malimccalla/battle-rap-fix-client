@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import { Container } from '../../components/Layout';
+import Input from '../../components/common/Form/Input';
+import { Container } from '../../components/common/Layout';
+import { InputButton } from '../../components/common/Button';
 
 import registerMutation from '../../mutations/register';
 
@@ -70,7 +72,7 @@ class Register extends Component {
       <Container>
         <h1>Register</h1>
         <form onSubmit={this.onSubmit}>
-          <input
+          <Input
             type="text"
             name="username"
             value={username}
@@ -78,7 +80,7 @@ class Register extends Component {
             onChange={this.onChange}
             error={`${!!emailError}`}
           />
-          <input
+          <Input
             type="email"
             name="email"
             value={email}
@@ -86,7 +88,7 @@ class Register extends Component {
             onChange={this.onChange}
             error={`${!!usernameError}`}
           />
-          <input
+          <Input
             type="password"
             name="password"
             value={password}
@@ -94,7 +96,7 @@ class Register extends Component {
             onChange={this.onChange}
             error={`${!!passwordError}`}
           />
-          <input type="submit" value="Submit" />
+          <InputButton primary type="submit" value="Submit" />
         </form>
         <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
       </Container>

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
-import { Container } from '../components/Layout';
+import { Container } from '../components/common/Layout';
 
 import query from '../queries/allUsers';
 
