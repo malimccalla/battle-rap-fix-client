@@ -6,9 +6,9 @@ import { ApolloProvider } from 'react-apollo';
 import { setContext } from 'apollo-link-context';
 import { createHttpLink } from 'apollo-link-http';
 import { InMemoryCache } from "apollo-cache-inmemory"; // eslint-disable-line
-import 'semantic-ui-css/semantic.min.css';
 
 import Routes from './routes';
+import baseStyles from './styles/index';
 import registerServiceWorker from './registerServiceWorker';
 
 const httpLink = createHttpLink({ uri: 'http://localhost:8000/graphql' });
@@ -50,5 +50,10 @@ const App = (
   </ApolloProvider>
 );
 
-ReactDOM.render(App, document.getElementById('root'));
+const render = () => {
+  baseStyles();
+  ReactDOM.render(App, document.getElementById('root'));
+};
+
+render();
 registerServiceWorker();

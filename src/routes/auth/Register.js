@@ -96,6 +96,7 @@ class Register extends Component {
           />
           <input type="submit" value="Submit" />
         </form>
+        <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
       </Container>
     );
   }
