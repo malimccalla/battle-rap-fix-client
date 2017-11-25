@@ -41,7 +41,9 @@ const afterwareLink = new ApolloLink((operation, forward) => {
 const link = afterwareLink.concat(middlewareLink.concat(httpLink));
 const client = new ApolloClient({
   link,
-  cache: new InMemoryCache(),
+  cache: new InMemoryCache({
+    dataIdFromObject: o => o.id,
+  }),
 });
 
 const App = (

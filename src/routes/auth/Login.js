@@ -5,7 +5,7 @@ import Input from '../../components/common/Form/Input';
 import { Container } from '../../components/common/Layout';
 import { InputButton } from '../../components/common/Button';
 
-import loginMutation from '../../mutations/login';
+import mutation from '../../mutations/login';
 
 class Login extends Component {
   state = {
@@ -87,4 +87,4 @@ Login.propTypes = {
   history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
-export default graphql(loginMutation)(Login);
+export default graphql(mutation)(Login);
