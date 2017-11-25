@@ -1,10 +1,10 @@
 import React from 'react';
 import { Container } from '../components/common/Layout';
 
-const Dashboard = () => (
+const Navbar = () => (
   <Container>
-    <h1>Dashboard</h1>
+    <span>Battle Rap Fix</span>
   </Container>
 );
 
-export default Dashboard;
+export default Navbar;

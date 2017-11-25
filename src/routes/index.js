@@ -12,6 +12,7 @@ import Home from './Home';
 import Login from './auth/Login';
 import Dashboard from './Dashboard';
 import Register from './auth/Register';
+import Navbar from '../components/Navbar';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -47,12 +48,15 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/login" exact component={Login} />
-      <Route path="/register" exact component={Register} />
-      <PrivateRoute path="/dashboard" exact component={Dashboard} />
-    </Switch>
+    <div>
+      <Navbar />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/login" exact component={Login} />
+        <Route path="/register" exact component={Register} />
+        <PrivateRoute path="/dashboard" exact component={Dashboard} />
+      </Switch>
+    </div>
   </Router>
 );
 
