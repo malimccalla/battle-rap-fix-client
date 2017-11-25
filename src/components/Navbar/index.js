@@ -15,12 +15,10 @@ class Navbar extends Component {
   onLogoutClick = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('refreshToken');
-    this.props.data.refetch();
-    console.log('Refetch', this.props.data);
   };
 
   render() {
-    const { data: { loading, user } } = this.props;
+    const { data: { loading, currentUser } } = this.props;
 
     const LoggedInMenuItems = [
       {
@@ -45,7 +43,7 @@ class Navbar extends Component {
           <Brand to="/">Battle Rap Fix</Brand>
           {!loading ? (
             <Collapse>
-              {user ? (
+              {currentUser ? (
                 <List>
                   {LoggedInMenuItems.map(({ text, url }) => (
                     <ListItem key={text} text={text} url={url} />
@@ -59,9 +57,6 @@ class Navbar extends Component {
                   {LoggedOutMenuItems.map(({ text, url }) => (
                     <ListItem key={text} text={text} url={url} />
                   ))}
-                  <li>
-                    <button onClick={this.onLogoutClick}>Logout</button>
-                  </li>
                 </List>
               )}
             </Collapse>

@@ -2,7 +2,7 @@ import gql from 'graphql-tag';
 
 export default gql`
   {
-    user: currentUser {
+    currentUser {
       id
       username
       email
