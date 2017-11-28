@@ -33,7 +33,7 @@ class Login extends Component {
     if (ok) {
       localStorage.setItem('token', token);
       localStorage.setItem('refreshToken', refreshToken);
-      this.props.history.push('/dashboard');
+      window.location.href = '/dashboard';
     } else {
       const err = {};
       errors.forEach(({ path, message }) => {
@@ -85,7 +85,6 @@ class Login extends Component {
 
 Login.propTypes = {
   mutate: PropTypes.func.isRequired,
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default graphql(mutation)(Login);
