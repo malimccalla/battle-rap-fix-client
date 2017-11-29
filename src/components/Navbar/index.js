@@ -8,6 +8,9 @@ import List from './List';
 import ListItem from './ListItem';
 import Collapse from './Collapse';
 import Container from './Container';
+import Text from './Text';
+import Button from './Button';
+import ButtonLink from './ButtonLink';
 
 import query from '../../queries/currentUser';
 
@@ -24,7 +27,8 @@ class Navbar extends Component {
     };
   }
 
-  renderLoggedIn = () => {
+  renderLoggedIn = currentUser => {
+    const { username } = currentUser;
     const LoggedInMenuItems = [
       {
         text: 'Dashboard',
@@ -41,10 +45,11 @@ class Navbar extends Component {
               {LoggedInMenuItems.map(({ text, url }) => (
                 <ListItem key={text} text={text} url={url} />
               ))}
-              <li>
-                <button onClick={this.logout}>Logout</button>
-              </li>
             </List>
+            <Text>{username}</Text>
+            <Button outline="true" onClick={this.logout}>
+              Logout
+            </Button>
           </Collapse>
         </Container>
       </Nav>
@@ -54,12 +59,8 @@ class Navbar extends Component {
   renderLoggedOut = () => {
     const LoggedOutMenuItems = [
       {
-        text: 'Register',
-        url: '/register',
-      },
-      {
-        text: 'Login',
-        url: '/login',
+        text: 'Home',
+        url: '/',
       },
     ];
 
@@ -73,6 +74,12 @@ class Navbar extends Component {
                 <ListItem key={text} text={text} url={url} />
               ))}
             </List>
+            <ButtonLink outline="true" to="/register">
+              Register
+            </ButtonLink>
+            <ButtonLink outline="true" to="/login">
+              Login
+            </ButtonLink>
           </Collapse>
         </Container>
       </Nav>
@@ -85,7 +92,7 @@ class Navbar extends Component {
     if (error || loading) {
       return this.renderLoggedOut();
     } else if (currentUser) {
-      return this.renderLoggedIn();
+      return this.renderLoggedIn(currentUser);
     }
     return this.renderLoggedOut();
   }

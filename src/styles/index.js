@@ -19,5 +19,6 @@ export default () => injectGlobal`
   body {
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.5;
   }
 `;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Button = styled.input`
+export const Button = styled.button`
   display: inline-block;
   font-weight: 400;
   text-align: center;
@@ -14,6 +14,7 @@ export const Button = styled.input`
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
+  cursor: pointer;
   border-radius: 0.25rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;

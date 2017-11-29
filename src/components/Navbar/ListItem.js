@@ -4,12 +4,12 @@ import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Link = styled(RouterLink)`
-  color: #fff;
+  color: rgba(255, 255, 255, 0.5);
   display: block;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   text-decoration: none;
 
-  @media (min-width: 992px) {
+  @media (min-width: 768px) {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
   }
