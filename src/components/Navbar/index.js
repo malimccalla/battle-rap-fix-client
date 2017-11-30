@@ -11,21 +11,22 @@ import Container from './Container';
 import Text from './Text';
 import Button from './Button';
 import ButtonLink from './ButtonLink';
+import Toggler from './Toggler';
 
 import query from '../../queries/currentUser';
 
 class Navbar extends Component {
-  constructor(props) {
-    super(props);
+  state = { isOpen: false };
 
-    this.logout = e => {
-      e.preventDefault();
-      localStorage.removeItem('token');
-      localStorage.removeItem('refreshToken');
-      props.client.resetStore();
-      window.location.href = '/';
-    };
-  }
+  onToggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+  logout = e => {
+    e.preventDefault();
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+    this.props.client.resetStore();
+    window.location.href = '/';
+  };
 
   renderLoggedIn = currentUser => {
     const { username } = currentUser;
@@ -34,13 +35,30 @@ class Navbar extends Component {
         text: 'Dashboard',
         url: '/dashboard',
       },
+      {
+        text: 'Artists',
+        url: '/artists',
+      },
+      {
+        text: 'Battles',
+        url: '/battles',
+      },
+      {
+        text: 'Leagues',
+        url: '/leagues',
+      },
+      {
+        text: 'Events',
+        url: '/events',
+      },
     ];
 
     return (
       <Nav>
         <Container>
           <Brand to="/">Battle Rap Fix</Brand>
-          <Collapse>
+          <Toggler onClick={this.onToggle}>Toggle</Toggler>
+          <Collapse isOpen={this.state.isOpen}>
             <List>
               {LoggedInMenuItems.map(({ text, url }) => (
                 <ListItem key={text} text={text} url={url} />
@@ -59,8 +77,20 @@ class Navbar extends Component {
   renderLoggedOut = () => {
     const LoggedOutMenuItems = [
       {
-        text: 'Home',
-        url: '/',
+        text: 'Artists',
+        url: '/artists',
+      },
+      {
+        text: 'Battles',
+        url: '/battles',
+      },
+      {
+        text: 'Leagues',
+        url: '/leagues',
+      },
+      {
+        text: 'Events',
+        url: '/events',
       },
     ];
 
@@ -68,7 +98,8 @@ class Navbar extends Component {
       <Nav>
         <Container>
           <Brand to="/">Battle Rap Fix</Brand>
-          <Collapse>
+          <Toggler onClick={this.onToggle}>Toggle</Toggler>
+          <Collapse isOpen={this.state.isOpen}>
             <List>
               {LoggedOutMenuItems.map(({ text, url }) => (
                 <ListItem key={text} text={text} url={url} />
