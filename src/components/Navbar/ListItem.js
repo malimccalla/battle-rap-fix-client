@@ -8,6 +8,13 @@ const Link = styled(RouterLink)`
   display: block;
   padding: 0.5rem 0;
   text-decoration: none;
+  transition: color 0.15s ease-in-out;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: #fff;
+  }
 
   @media (min-width: 768px) {
     padding-right: 0.5rem;

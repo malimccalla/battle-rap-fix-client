@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
+import Alert from '../../components/Alert';
 import Input from '../../components/common/Form/Input';
 import { Container } from '../../components/common/Layout';
 import { InputButton } from '../../components/common/Button';
@@ -64,6 +65,9 @@ class Register extends Component {
     if (emailError) {
       errorList.push(emailError);
     }
+    if (usernameError) {
+      errorList.push(usernameError);
+    }
     if (passwordError) {
       errorList.push(passwordError);
     }
@@ -78,7 +82,7 @@ class Register extends Component {
             value={username}
             placeholder="Username"
             onChange={this.onChange}
-            error={`${!!emailError}`}
+            error={`${!!usernameError}`}
           />
           <Input
             type="email"
@@ -86,7 +90,7 @@ class Register extends Component {
             value={email}
             placeholder="Email"
             onChange={this.onChange}
-            error={`${!!usernameError}`}
+            error={`${!!emailError}`}
           />
           <Input
             type="password"
@@ -98,7 +102,12 @@ class Register extends Component {
           />
           <InputButton primary type="submit" value="Submit" />
         </form>
-        <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
+        {errorList.length ? (
+          <Alert
+            errors={errorList}
+            message="There was some errors with your submission"
+          />
+        ) : null}
       </Container>
     );
   }

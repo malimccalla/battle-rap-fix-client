@@ -21,4 +21,8 @@ export default () => injectGlobal`
     'Helvetica Neue', Arial, sans-serif;
     line-height: 1.5;
   }
+
+  p {
+    margin-top: 0;
+  }
 `;

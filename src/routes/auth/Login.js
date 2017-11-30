@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
+import Alert from '../../components/Alert';
 import Input from '../../components/common/Form/Input';
 import { Container } from '../../components/common/Layout';
 import { InputButton } from '../../components/common/Button';
@@ -77,7 +78,12 @@ class Login extends Component {
           />
           <InputButton primary type="submit" value="Submit" />
         </form>
-        <ul>{errorList.map(error => <li key={error}>{error}</li>)}</ul>
+        {errorList.length ? (
+          <Alert
+            errors={errorList}
+            message="There was some errors with your submission"
+          />
+        ) : null}
       </Container>
     );
   }
