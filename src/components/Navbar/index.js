@@ -57,7 +57,7 @@ class Navbar extends Component {
       <Nav>
         <Container>
           <Brand to="/">Battle Rap Fix</Brand>
-          <Toggler onClick={this.onToggle}>Toggle</Toggler>
+          <Toggler onToggle={this.onToggle}>Toggle</Toggler>
           <Collapse isOpen={this.state.isOpen}>
             <List>
               {LoggedInMenuItems.map(({ text, url }) => (
@@ -98,7 +98,7 @@ class Navbar extends Component {
       <Nav>
         <Container>
           <Brand to="/">Battle Rap Fix</Brand>
-          <Toggler onClick={this.onToggle}>Toggle</Toggler>
+          <Toggler onToggle={this.onToggle}>Toggle</Toggler>
           <Collapse isOpen={this.state.isOpen}>
             <List>
               {LoggedOutMenuItems.map(({ text, url }) => (

@@ -3,6 +3,7 @@ import { Button } from '../common/Button';
 export default Button.extend`
   margin-top: 0.5rem;
   margin-right: 0.5rem;
+  margin-bottom: 1rem;
   color: #fff;
   background-color: ${props => (props.outline ? 'transparent' : '#868e96')};
   border-width: ${props => (props.outline ? '2px' : '1px')};
@@ -18,7 +19,8 @@ export default Button.extend`
 
   @media (min-width: 768px) {
     margin-top: 0;
-    margin-left: 0.5rem;
     margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
   }
 `;

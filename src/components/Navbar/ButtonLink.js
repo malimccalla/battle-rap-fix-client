@@ -14,6 +14,7 @@ export default styled(RouterLink)`
   border: 1px solid transparent;
   margin-top: 0.5rem;
   margin-right: 0.5rem;
+  margin-bottom: 1rem;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
@@ -37,7 +38,8 @@ export default styled(RouterLink)`
 
   @media (min-width: 768px) {
     margin-top: 0;
-    margin-left: 0.5rem;
     margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0.5rem;
   }
 `;
