@@ -28,6 +28,24 @@ const isAuthenticated = () => {
   return true;
 };
 
+const PublicRoute = ({ component: Component, ...rest }) => (
+  <Route
+    {...rest}
+    render={props =>
+      !isAuthenticated() ? (
+        <Component {...props} />
+      ) : (
+        <Redirect
+          to={{
+            pathname: '/dashboard',
+            state: { from: props.location },
+          }}
+        />
+      )
+    }
+  />
+);
+
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
     {...rest}
@@ -52,16 +70,25 @@ const Routes = () => (
       <Navbar />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/login" exact component={Login} />
-        <Route path="/register" exact component={Register} />
+        <PublicRoute path="/login" exact component={Login} />
+        <PublicRoute path="/register" exact component={Register} />
         <PrivateRoute path="/dashboard" exact component={Dashboard} />
       </Switch>
     </div>
   </Router>
 );
 
+PublicRoute.defaultProps = {
+  location: undefined,
+};
+
 PrivateRoute.defaultProps = {
   location: undefined,
+};
+
+PublicRoute.propTypes = {
+  location: PropTypes.objectOf(PropTypes.any),
+  component: PropTypes.func.isRequired,
 };
 
 PrivateRoute.propTypes = {
