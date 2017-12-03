@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/variables.json';
 
 export default styled.input`
   display: block;
@@ -7,11 +8,13 @@ export default styled.input`
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
+  color: ${colors.darkGrey};
+  background-color: ${colors.white};
   background-image: none;
   background-clip: padding-box;
-  border: 1px solid ${props => (props.error === 'true' ? '#dc3545' : '#ced4da')};
+  border: 1px solid
+    ${props =>
+      props.error === 'true' ? colors.border.error : colors.border.default};
   border-radius: 0.25rem;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 `;

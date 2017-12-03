@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
+import { colors } from '../../styles/variables.json';
 
 const Link = styled(RouterLink)`
   color: rgba(255, 255, 255, 0.5);
@@ -13,7 +14,7 @@ const Link = styled(RouterLink)`
   &:hover,
   &:focus,
   &:active {
-    color: #fff;
+    color: ${colors.white};
   }
 
   @media (min-width: 768px) {

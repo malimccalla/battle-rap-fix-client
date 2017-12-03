@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors } from '../styles/variables.json';
 
 const Wrapper = styled.div`
   position: relative;
@@ -10,9 +11,9 @@ const Wrapper = styled.div`
   border: 1px solid transparent;
   border-radius: 0.25rem;
 
-  color: #721c24;
-  background-color: #f8d7da;
-  border-color: #f5c6cb;
+  color: ${colors.alerts.error.text};
+  background-color: ${colors.alerts.error.background};
+  border-color: ${colors.alerts.error.border};
 `;
 
 const List = styled.ul`

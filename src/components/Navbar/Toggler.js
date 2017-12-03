@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { colors } from '../../styles/variables.json';
 
 const Wrapper = styled.div`
   width: 31px;
@@ -19,7 +20,7 @@ const Bar = styled.span`
   right: 0px;
   top: ${props => props.topPosition}%;
   opacity: 1;
-  background-color: #fff;
+  background-color: ${colors.white};
 `;
 
 const Button = styled.button`

@@ -1,0 +1,22 @@
+{
+  "colors": {
+    "primary": "#007bff",
+    "primaryDarken": "#0069d9",
+    "white": "#fff",
+    "black": "#222",
+    "grey": "#868e96",
+    "greyDarken": "#727b84",
+    "darkGrey": "#495057",
+    "border": {
+      "default": "#ced4da",
+      "error": "#dc3545"
+    },
+    "alerts": {
+      "error": {
+        "text": "#721c24",
+        "border": "#f5c6cb",
+        "background": "#f8d7da"
+      }
+    }
+  }
+}

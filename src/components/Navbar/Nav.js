@@ -1,6 +1,7 @@
 import styled from 'styled-components';
+import { colors } from '../../styles/variables.json';
 
 export default styled.nav`
-  color: #fff;
-  background-color: #222;
+  color: ${colors.white};
+  background-color: ${colors.black};
 `;

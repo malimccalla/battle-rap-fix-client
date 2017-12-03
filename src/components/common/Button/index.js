@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { colors } from '../../../styles/variables.json';
 
 export const Button = styled.button`
   display: inline-block;
@@ -18,16 +19,18 @@ export const Button = styled.button`
   border-radius: 0.25rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
-  color: #fff;
-  background-color: ${props => (props.primary ? '#007bff' : '#868e96')};
-  border-color: ${props => (props.primary ? '#007bff' : '#868e96')};
+  color: ${colors.white};
+  background-color: ${props => (props.primary ? colors.primary : colors.grey)};
+  border-color: ${props => (props.primary ? colors.primary : colors.grey)};
 
   &:hover,
   &:focus,
   &:active {
-    color: #fff;
-    background-color: ${props => (props.primary ? '#0069d9' : '#727b84')};
-    border-color: ${props => (props.primary ? '#0062cc' : '#6c757d')};
+    color: ${colors.white};
+    background-color: ${props =>
+      props.primary ? colors.primaryDarken : colors.greyDarken};
+    border-color: ${props =>
+      props.primary ? colors.primaryDarken : colors.greyDarken};
   }
 `;
 
@@ -49,15 +52,17 @@ export const InputButton = styled.input`
   border-radius: 0.25rem;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
-  color: #fff;
-  background-color: ${props => (props.primary ? '#007bff' : '#868e96')};
-  border-color: ${props => (props.primary ? '#007bff' : '#868e96')};
+  color: ${colors.white};
+  background-color: ${props => (props.primary ? colors.primary : colors.grey)};
+  border-color: ${props => (props.primary ? colors.primary : colors.grey)};
 
   &:hover,
   &:focus,
   &:active {
-    color: #fff;
-    background-color: ${props => (props.primary ? '#0069d9' : '#727b84')};
-    border-color: ${props => (props.primary ? '#0062cc' : '#6c757d')};
+    color: ${colors.white};
+    background-color: ${props =>
+      props.primary ? colors.primaryDarken : colors.greyDarken};
+    border-color: ${props =>
+      props.primary ? colors.primaryDarken : colors.greyDarken};
   }
 `;
