@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors } from '../../styles/variables.json';
+import { colors, breakpoints } from '../../styles/variables.json';
 
 const Wrapper = styled.div`
   width: 31px;
   height: 25px;
   position: relative;
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     display: none;
   }
 `;

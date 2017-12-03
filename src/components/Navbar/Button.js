@@ -1,10 +1,11 @@
 import { Button } from '../common/Button';
-import { colors } from '../../styles/variables.json';
+import { colors, breakpoints } from '../../styles/variables.json';
 
 export default Button.extend`
   margin-top: 0.5rem;
   margin-right: 0.5rem;
   margin-bottom: 1rem;
+  padding: 0.375rem 0.75rem;
   color: ${colors.white};
   background-color: ${props => (props.outline ? 'transparent' : colors.grey)};
   border-width: ${props => (props.outline ? '2px' : '1px')};
@@ -20,7 +21,7 @@ export default Button.extend`
       props.outline ? colors.white : colors.greyDarken};
   }
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;

@@ -1,6 +1,6 @@
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors } from '../../styles/variables.json';
+import { colors, breakpoints } from '../../styles/variables.json';
 
 export default styled(RouterLink)`
   display: inline-block;
@@ -20,7 +20,7 @@ export default styled(RouterLink)`
   font-size: 1rem;
   line-height: 1.5;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border\-radius: 3px;
   text-decoration: none;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
@@ -39,7 +39,7 @@ export default styled(RouterLink)`
       props.outline ? colors.white : colors.greyDarken};
   }
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     margin-top: 0;
     margin-right: 0;
     margin-bottom: 0;

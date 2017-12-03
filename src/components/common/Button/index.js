@@ -12,11 +12,11 @@ export const Button = styled.button`
   -ms-user-select: none;
   user-select: none;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1.75rem;
   font-size: 1rem;
   line-height: 1.5;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border\-radius: 3px;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
   color: ${colors.white};
@@ -46,10 +46,10 @@ export const InputButton = styled.input`
   user-select: none;
   cursor: pointer;
   border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
+  padding: 0.5rem 1.75rem;
   font-size: 1rem;
   line-height: 1.5;
-  border-radius: 0.25rem;
+  border\-radius: 3px;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
   color: ${colors.white};

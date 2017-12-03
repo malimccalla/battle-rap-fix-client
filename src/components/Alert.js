@@ -7,9 +7,9 @@ const Wrapper = styled.div`
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   border: 1px solid transparent;
-  border-radius: 0.25rem;
+  border\-radius: 3px;
 
   color: ${colors.alerts.error.text};
   background-color: ${colors.alerts.error.background};

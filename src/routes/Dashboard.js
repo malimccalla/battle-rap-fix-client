@@ -1,9 +1,13 @@
 import React from 'react';
+
+import Card from '../components/Card';
 import { Container } from '../components/common/Layout';
 
 const Dashboard = () => (
   <Container>
-    <h1>Dashboard</h1>
+    <Card>
+      <h1>Dashboard</h1>
+    </Card>
   </Container>
 );
 

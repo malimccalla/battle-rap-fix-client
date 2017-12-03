@@ -1,4 +1,5 @@
 import { Container } from '../common/Layout';
+import { breakpoints } from '../../styles/variables.json';
 
 export default Container.extend`
   position: relative;
@@ -8,7 +9,7 @@ export default Container.extend`
   justify-content: space-between;
   padding: 0.5rem 1rem;
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     flex-flow: row nowrap;
     justify-content: flex-start;
   }

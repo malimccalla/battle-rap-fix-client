@@ -15,6 +15,6 @@ export default styled.input`
   border: 1px solid
     ${props =>
       props.error === 'true' ? colors.border.error : colors.border.default};
-  border-radius: 0.25rem;
+  border\-radius: 3px;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 `;

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../../styles/variables.json';
 
 export const Container = styled.div`
   width: 100%;
@@ -8,19 +9,19 @@ export const Container = styled.div`
   padding-right: 15px;
   position: relative;
 
-  @media (min-width: 576px) {
+  @media (${breakpoints.mobile}) {
     max-width: 540px;
   }
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     max-width: 720px;
   }
 
-  @media (min-width: 992px) {
+  @media (${breakpoints.desktop}) {
     max-width: 960px;
   }
 
-  @media (min-width: 1200px) {
+  @media (${breakpoints.largeDesktop}) {
     max-width: 1140px;
   }
 `;

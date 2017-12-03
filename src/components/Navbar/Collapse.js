@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../styles/variables.json';
 
 export default styled.div`
   flex-grow: 1;
@@ -6,7 +7,7 @@ export default styled.div`
   align-items: center;
   display: ${props => (props.isOpen ? 'block' : 'none')};
 
-  @media (min-width: 768px) {
+  @media (${breakpoints.tablet}) {
     display: flex;
   }
 `;

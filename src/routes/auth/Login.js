@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
+import Card from '../../components/Card';
 import Alert from '../../components/Alert';
 import Input from '../../components/common/Form/Input';
 import { Container } from '../../components/common/Layout';
@@ -58,32 +59,34 @@ class Login extends Component {
 
     return (
       <Container>
-        <h1>Login</h1>
-        <form onSubmit={this.onSubmit}>
-          <Input
-            type="email"
-            name="email"
-            value={email}
-            placeholder="Email"
-            onChange={this.onChange}
-            error={`${!!emailError}`}
-          />
-          <Input
-            type="password"
-            name="password"
-            value={password}
-            placeholder="Password"
-            onChange={this.onChange}
-            error={`${!!passwordError}`}
-          />
-          <InputButton primary type="submit" value="Submit" />
-        </form>
-        {errorList.length ? (
-          <Alert
-            errors={errorList}
-            message="There was some errors with your submission"
-          />
-        ) : null}
+        <Card width="500px">
+          <h1>Login</h1>
+          <form onSubmit={this.onSubmit}>
+            <Input
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+              onChange={this.onChange}
+              error={`${!!emailError}`}
+            />
+            <Input
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Password"
+              onChange={this.onChange}
+              error={`${!!passwordError}`}
+            />
+            <InputButton primary type="submit" value="Login" />
+          </form>
+          {errorList.length ? (
+            <Alert
+              errors={errorList}
+              message="There was some errors with your submission"
+            />
+          ) : null}
+        </Card>
       </Container>
     );
   }
