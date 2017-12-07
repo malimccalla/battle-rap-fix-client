@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Link as RouterLink } from 'react-router-dom';
 import styled from 'styled-components';
-import { colors, breakpoints } from '../../styles/variables.json';
 
 const Link = styled(RouterLink)`
   color: rgba(255, 255, 255, 0.5);
@@ -14,10 +13,10 @@ const Link = styled(RouterLink)`
   &:hover,
   &:focus,
   &:active {
-    color: ${colors.white};
+    color: ${props => props.theme.colors.white};
   }
 
-  @media (${breakpoints.tablet}) {
+  @media (${props => props.theme.breakpoints.tablet}) {
     padding-right: 0.5rem;
     padding-left: 0.5rem;
   }

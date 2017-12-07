@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { breakpoints } from '../../styles/variables.json';
 
 export default styled.ul`
   display: flex;
@@ -10,7 +9,7 @@ export default styled.ul`
   margin-right: auto;
   list-style: none;
 
-  @media (${breakpoints.tablet}) {
+  @media (${props => props.theme.breakpoints.tablet}) {
     flex-direction: row;
   }
 `;

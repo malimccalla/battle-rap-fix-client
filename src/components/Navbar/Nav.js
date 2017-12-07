@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { colors, boxShadow } from '../../styles/variables.json';
 
 export default styled.nav`
-  color: ${colors.white};
+  color: ${props => props.theme.colors.white};
   margin-bottom: 30px;
-  box-shadow: ${boxShadow};
-  background-color: ${colors.black};
+  box-shadow: ${props => props.theme.boxShadow};
+  background-color: ${props => props.theme.colors.black};
 `;

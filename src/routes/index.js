@@ -9,10 +9,10 @@ import {
 } from 'react-router-dom';
 
 import Home from './Home';
-import Login from './auth/Login';
+import Artists from './Artists';
 import Dashboard from './Dashboard';
+import Login from './auth/Login';
 import Register from './auth/Register';
-import Navbar from '../components/Navbar';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -66,15 +66,13 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 const Routes = () => (
   <Router>
-    <div>
-      <Navbar />
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <PublicRoute path="/login" exact component={Login} />
-        <PublicRoute path="/register" exact component={Register} />
-        <PrivateRoute path="/dashboard" exact component={Dashboard} />
-      </Switch>
-    </div>
+    <Switch>
+      <Route path="/" exact component={Home} />
+      <Route path="/artists" exact component={Artists} />
+      <PublicRoute path="/login" exact component={Login} />
+      <PublicRoute path="/register" exact component={Register} />
+      <PrivateRoute path="/dashboard" exact component={Dashboard} />
+    </Switch>
   </Router>
 );
 

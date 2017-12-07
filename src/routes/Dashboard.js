@@ -1,14 +1,16 @@
 import React from 'react';
 
+import Layout from '../components/Layout';
 import Card from '../components/Card';
-import { Container } from '../components/common/Layout';
+import { Container } from '../components/common/Grid';
 
 const Dashboard = () => (
-  <Container>
-    <Card>
+  <Layout>
+    <Container>
       <h1>Dashboard</h1>
-    </Card>
-  </Container>
+      <Card />
+    </Container>
+  </Layout>
 );
 
 export default Dashboard;

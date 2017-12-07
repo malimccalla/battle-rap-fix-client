@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from '../../../styles/variables.json';
 
 export const Button = styled.button`
   display: inline-block;
@@ -19,18 +18,24 @@ export const Button = styled.button`
   border\-radius: 3px;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
-  color: ${colors.white};
-  background-color: ${props => (props.primary ? colors.primary : colors.grey)};
-  border-color: ${props => (props.primary ? colors.primary : colors.grey)};
+  color: ${props => props.theme.colors.white};
+  background-color: ${props =>
+    props.primary ? props.theme.colors.primary : props.theme.colors.grey};
+  border-color: ${props =>
+    props.primary ? props.theme.colors.primary : props.theme.colors.grey};
 
   &:hover,
   &:focus,
   &:active {
-    color: ${colors.white};
+    color: ${props => props.theme.colors.white};
     background-color: ${props =>
-      props.primary ? colors.primaryDarken : colors.greyDarken};
+      props.primary
+        ? props.theme.colors.primaryDarken
+        : props.theme.colors.greyDarken};
     border-color: ${props =>
-      props.primary ? colors.primaryDarken : colors.greyDarken};
+      props.primary
+        ? props.theme.colors.primaryDarken
+        : props.theme.colors.greyDarken};
   }
 `;
 
@@ -52,17 +57,23 @@ export const InputButton = styled.input`
   border\-radius: 3px;
   transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
     box-shadow 0.15s ease-in-out;
-  color: ${colors.white};
-  background-color: ${props => (props.primary ? colors.primary : colors.grey)};
-  border-color: ${props => (props.primary ? colors.primary : colors.grey)};
+  color: ${props => props.theme.colors.white};
+  background-color: ${props =>
+    props.primary ? props.theme.colors.primary : props.theme.colors.grey};
+  border-color: ${props =>
+    props.primary ? props.theme.colors.primary : props.theme.colors.grey};
 
   &:hover,
   &:focus,
   &:active {
-    color: ${colors.white};
+    color: ${props => props.theme.colors.white};
     background-color: ${props =>
-      props.primary ? colors.primaryDarken : colors.greyDarken};
+      props.primary
+        ? props.theme.colors.primaryDarken
+        : props.theme.colors.greyDarken};
     border-color: ${props =>
-      props.primary ? colors.primaryDarken : colors.greyDarken};
+      props.primary
+        ? props.theme.colors.primaryDarken
+        : props.theme.colors.greyDarken};
   }
 `;

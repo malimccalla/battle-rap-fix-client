@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { colors, breakpoints } from '../../styles/variables.json';
 
 const Wrapper = styled.div`
   width: 31px;
   height: 25px;
   position: relative;
 
-  @media (${breakpoints.tablet}) {
+  @media (${props => props.theme.breakpoints.tablet}) {
     display: none;
   }
 `;
@@ -20,7 +19,7 @@ const Bar = styled.span`
   right: 0px;
   top: ${props => props.topPosition}%;
   opacity: 1;
-  background-color: ${colors.white};
+  background-color: ${props => props.theme.colors.white};
 `;
 
 const Button = styled.button`

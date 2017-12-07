@@ -1,6 +1,5 @@
 import styledNormalize from 'styled-normalize';
 import { injectGlobal } from 'styled-components';
-import { colors } from './variables.json';
 
 export default () => injectGlobal`
   ${styledNormalize}
@@ -18,11 +17,11 @@ export default () => injectGlobal`
   }
 
   body {
-    color: ${colors.global.text};
+    color: #778795;
     font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
     line-height: 1.5;
-    background-color: ${colors.global.background};
+    background-color: #ebeef5;
   }
 
   h1,
@@ -30,7 +29,6 @@ export default () => injectGlobal`
   h3,
   h4,
   h5 {
-    color: ${colors.mediumGrey};
     font-weight: 600;
     line-height: .8;
   }
