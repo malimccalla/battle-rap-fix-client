@@ -16,10 +16,6 @@ export default styled.div`
     margin-top: 0;
   }
 
-  @media (${props => props.theme.breakpoints.mobile}) {
-    padding: 3rem;
-  }
-
   @media (${props => props.theme.breakpoints.tablet}) {
     max-width: ${props => (props.width ? props.width : '100%')};
   }

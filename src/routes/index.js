@@ -13,6 +13,7 @@ import Artists from './Artists';
 import Dashboard from './Dashboard';
 import Login from './auth/Login';
 import Register from './auth/Register';
+import CreateArtist from './Artists/CreateArtist';
 
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
@@ -69,6 +70,7 @@ const Routes = () => (
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/artists" exact component={Artists} />
+      <PrivateRoute path="/artists/new" exact component={CreateArtist} />
       <PublicRoute path="/login" exact component={Login} />
       <PublicRoute path="/register" exact component={Register} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
