@@ -5,11 +5,11 @@ import styled, { ThemeProvider } from 'styled-components';
 import theme from '../../styles/theme';
 import Navbar from '../Navbar';
 
-const Layout = props => (
+const Layout = ({ children }) => (
   <ThemeProvider theme={theme}>
     <StyledLayout>
       <Navbar />
-      {props.children}
+      {children}
     </StyledLayout>
   </ThemeProvider>
 );
