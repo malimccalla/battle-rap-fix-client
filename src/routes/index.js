@@ -10,6 +10,7 @@ import {
 
 import Home from './Home';
 import Artists from './Artists';
+import Leagues from './Leagues';
 import Dashboard from './Dashboard';
 import Login from './auth/Login';
 import Register from './auth/Register';
@@ -71,6 +72,7 @@ const Routes = () => (
       <Route path="/" exact component={Home} />
       <Route path="/artists" exact component={Artists} />
       <PrivateRoute path="/artists/new" exact component={CreateArtist} />
+      <Route path="/leagues" exact component={Leagues} />
       <PublicRoute path="/login" exact component={Login} />
       <PublicRoute path="/register" exact component={Register} />
       <PrivateRoute path="/dashboard" exact component={Dashboard} />
