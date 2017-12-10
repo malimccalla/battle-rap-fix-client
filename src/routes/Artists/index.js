@@ -1,12 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { graphql } from 'react-apollo';
 
 import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Col from '../../components/common/Grid/Column';
 import { Container, Row } from '../../components/common/Grid';
 
-const Artists = () => (
+import query from '../../queries/allArtists';
+
+const Artists = ({ data: { artists = [] } }) => (
   <Layout>
     <Container>
       <Row>
@@ -18,15 +22,14 @@ const Artists = () => (
         </Col>
       </Row>
       <Card>
-        <div>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab vero
-          suscipit voluptatum blanditiis doloribus, obcaecati minus dolor error
-          laborum, corporis libero doloremque cumque sit quaerat repellendus!
-          Earum temporibus fugit debitis
-        </div>
+        <ul>{artists.map(u => <li key={u.id}>{u.stageName}</li>)}</ul>
       </Card>
     </Container>
   </Layout>
 );
 
-export default Artists;
+Artists.propTypes = {
+  data: PropTypes.objectOf(PropTypes.any).isRequired,
+};
+
+export default graphql(query)(Artists);

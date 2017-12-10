@@ -9,6 +9,7 @@ import { Container } from '../../components/common/Grid';
 import Input from '../../components/common/Form/Input';
 import { InputButton } from '../../components/common/Button';
 
+import query from '../../queries/allArtists';
 import mutation from '../../mutations/createArtist';
 
 class CreateArtist extends Component {
@@ -30,9 +31,9 @@ class CreateArtist extends Component {
     const { stageName, firstName, lastName } = this.state;
     const response = await this.props.mutate({
       variables: { stageName, firstName, lastName },
+      refetchQueries: [{ query }],
     });
 
-    console.log(response.data.createArtist);
     const { ok, errors } = response.data.createArtist;
 
     if (ok) {
