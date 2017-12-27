@@ -2,8 +2,8 @@ export default {
   colors: {
     primary: '#007bff',
     primaryDarken: '#0069d9',
+    black: '#282C37',
     white: '#fff',
-    black: '#222',
     grey: '#868e96',
     greyDarken: '#727b84',
     lightGrey: '#808599',
@@ -14,6 +14,7 @@ export default {
       background: '#ebeef5',
     },
     border: {
+      radius: '2px',
       default: '#ced4da',
       error: '#dc3545',
     },
@@ -24,6 +25,11 @@ export default {
         background: '#f8d7da',
       },
     },
+  },
+  border: {
+    radius: '2px',
+    default: '#ced4da',
+    error: '#dc3545',
   },
   breakpoints: {
     mobile: 'min-width: 576px',

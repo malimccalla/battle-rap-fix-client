@@ -18,10 +18,10 @@ export default () => injectGlobal`
 
   body {
     color: #778795;
-    font-family: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    font-family: 'Montserrat', -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
     'Helvetica Neue', Arial, sans-serif;
     line-height: 1.5;
-    background-color: #ebeef5;
+    background-color: #f5f5f5;
   }
 
   h1,

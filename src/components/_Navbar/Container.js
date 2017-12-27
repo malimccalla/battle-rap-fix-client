@@ -1,19 +1,15 @@
-import styled from 'styled-components';
+import { Container } from '../common/Grid';
 
-export default styled.div`
-  width: 100%;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0.5rem 1rem;
+export default Container.extend`
   position: relative;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem 1rem;
 
   @media (${props => props.theme.breakpoints.tablet}) {
     flex-flow: row nowrap;
     justify-content: flex-start;
-    padding: 0.5rem 2rem;
   }
 `;

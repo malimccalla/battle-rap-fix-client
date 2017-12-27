@@ -1,18 +1,38 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../../styles/theme';
 import Navbar from '../Navbar';
 
-const Layout = ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <StyledLayout>
-      <Navbar />
-      {children}
-    </StyledLayout>
-  </ThemeProvider>
-);
+class Layout extends Component {
+  state = {
+    isSidebarOpen: true,
+  };
+
+  toggleSidebar = e => {
+    e.preventDefault();
+
+    this.setState({ isSidebarOpen: !this.state.isSidebarOpen });
+  };
+
+  render() {
+    const { isSidebarOpen } = this.state;
+    const { children } = this.props;
+
+    return (
+      <ThemeProvider theme={theme}>
+        <StyledLayout>
+          <Navbar
+            isSidebarOpen={isSidebarOpen}
+            toggleSidebar={this.toggleSidebar}
+          />
+          {children}
+        </StyledLayout>
+      </ThemeProvider>
+    );
+  }
+}
 
 const StyledLayout = styled.div`
   width: 100%;
