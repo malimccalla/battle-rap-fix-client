@@ -32,10 +32,10 @@ export default {
     error: '#dc3545',
   },
   breakpoints: {
-    mobile: 'min-width: 576px',
-    tablet: 'min-width: 768px',
-    desktop: 'min-width: 992px',
-    largeDesktop: 'min-width: 1200px',
+    mobile: '576px',
+    tablet: '768px',
+    desktop: '992px',
+    largeDesktop: '1200px',
   },
   boxShadow: '0 3px 10px rgba(0, 0, 0, 0.1)',
 };

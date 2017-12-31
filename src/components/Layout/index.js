@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 
 import theme from '../../styles/theme';
-import Navbar from '../Navbar';
+import Navbar from './Navbar';
+import Sidebar from './Sidebar';
 
 class Layout extends Component {
   state = {
@@ -27,7 +28,10 @@ class Layout extends Component {
             isSidebarOpen={isSidebarOpen}
             toggleSidebar={this.toggleSidebar}
           />
-          {children}
+          <Wrapper>
+            {isSidebarOpen ? <Sidebar /> : null}
+            <Main>{children}</Main>
+          </Wrapper>
         </StyledLayout>
       </ThemeProvider>
     );
@@ -36,7 +40,16 @@ class Layout extends Component {
 
 const StyledLayout = styled.div`
   width: 100%;
-  padding-bottom: 10rem;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  height: calc(100vh - 56px);
+`;
+
+const Main = styled.main`
+  flex: 1 1 auto;
+  overflow: auto;
 `;
 
 Layout.propTypes = {

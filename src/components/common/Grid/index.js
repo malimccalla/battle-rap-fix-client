@@ -8,19 +8,19 @@ export const Container = styled.div`
   padding-right: 15px;
   position: relative;
 
-  @media (${props => props.theme.breakpoints.mobile}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.mobile}) {
     max-width: 540px;
   }
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     max-width: 720px;
   }
 
-  @media (${props => props.theme.breakpoints.desktop}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.desktop}) {
     max-width: 960px;
   }
 
-  @media (${props => props.theme.breakpoints.largeDesktop}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.largeDesktop}) {
     max-width: 1140px;
   }
 `;

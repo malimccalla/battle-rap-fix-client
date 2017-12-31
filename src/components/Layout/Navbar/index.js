@@ -22,10 +22,7 @@ const Navbar = ({ toggleSidebar }) => (
           <ListItem url="/" text="Home" />
           <ListItem url="/dashboard" text="Discover" />
         </List>
-        <SearchBar
-          type="text"
-          placeholder="Search for artists, battles, leagues, events..."
-        />
+        <SearchBar placeholder="Search for artists, battles, leagues, events..." />
         <Buttons>
           <Link to="/login">Log in</Link>
           <Link to="/register">Sign up</Link>

@@ -9,11 +9,12 @@ export default styled.div`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
-  @media (${props => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-flow: row nowrap;
     justify-content: flex-start;
+    justify-content: space-between;
     padding: 0.5rem 2rem;
   }
 `;
