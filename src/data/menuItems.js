@@ -10,16 +10,9 @@ export const loggedOutItems = [
 ];
 
 export const loggedInItems = [
-  {
-    text: 'Home',
-    url: '/',
-  },
+  ...loggedOutItems,
   {
     text: 'Dashboard',
     url: '/dashboard',
-  },
-  {
-    text: 'Discover',
-    url: '/discover',
   },
 ];
