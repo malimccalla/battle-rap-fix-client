@@ -15,6 +15,7 @@ import SearchBar from './SearchBar';
 import ToggleIcon from './ToggleIcon';
 
 import query from '../../../queries/currentUser';
+import { loggedOutItems, loggedInItems } from '../../../data/menuItems';
 
 const logoutClick = e => {
   e.preventDefault();
@@ -25,51 +26,57 @@ const logoutClick = e => {
   window.location.href = '/';
 };
 
-const NavbarLoggedOut = ({ toggleSidebar }) => (
+const Navbar = ({ toggleSidebar, children, auth }) => (
   <Nav>
     <Container>
       <ToggleIcon toggleSidebar={toggleSidebar} />
       <Logo to="/">Battle Rap Fix</Logo>
       <Content>
-        <List>
-          <ListItem url="/" text="Home" />
-          <ListItem url="/dashboard" text="Discover" />
-        </List>
+        {auth ? (
+          <List>
+            {loggedInItems.map(({ text, url }) => (
+              <ListItem key={text} text={text} url={url} />
+            ))}
+          </List>
+        ) : (
+          <List>
+            {loggedOutItems.map(({ text, url }) => (
+              <ListItem key={text} text={text} url={url} />
+            ))}
+          </List>
+        )}
         <SearchBar placeholder="Search for artists, battles, leagues, events..." />
-        <Buttons>
-          <Link to="/login">Log in</Link>
-          <Link to="/register">Sign up</Link>
-        </Buttons>
+        <Buttons>{children}</Buttons>
       </Content>
     </Container>
   </Nav>
 );
 
+const NavbarLoggedOut = ({ toggleSidebar }) => (
+  <Navbar auth={false} toggleSidebar={toggleSidebar}>
+    <Link to="/login">Log in</Link>
+    <Link to="/register">Sign up</Link>
+  </Navbar>
+);
+
 const NavbarLoggedIn = ({ toggleSidebar }) => (
-  <Nav>
-    <Container>
-      <ToggleIcon toggleSidebar={toggleSidebar} />
-      <Logo to="/">Battle Rap Fix</Logo>
-      <Content>
-        <List>
-          <ListItem url="/" text="Home" />
-          <ListItem url="/dashboard" text="Discover" />
-        </List>
-        <SearchBar placeholder="Search for artists, battles, leagues, events..." />
-        <Buttons>
-          <Link to="/" onClick={logoutClick}>
-            Log out
-          </Link>
-        </Buttons>
-      </Content>
-    </Container>
-  </Nav>
+  <Navbar auth toggleSidebar={toggleSidebar}>
+    <Link to="/" onClick={logoutClick}>
+      Log out
+    </Link>
+  </Navbar>
 );
 
 const branchComponent = branch(
   props => props.data.error || props.data.loading,
   renderComponent(NavbarLoggedOut)
 );
+
+Navbar.propTypes = {
+  auth: PropTypes.bool.isRequired,
+  children: PropTypes.node.isRequired,
+  toggleSidebar: PropTypes.func.isRequired,
+};
 
 NavbarLoggedOut.propTypes = {
   toggleSidebar: PropTypes.func.isRequired,
