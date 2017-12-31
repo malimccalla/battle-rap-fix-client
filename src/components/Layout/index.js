@@ -8,7 +8,7 @@ import Sidebar from './Sidebar';
 
 class Layout extends Component {
   state = {
-    isSidebarOpen: true,
+    isSidebarOpen: false,
   };
 
   toggleSidebar = e => {
@@ -50,6 +50,7 @@ const Wrapper = styled.div`
 const Main = styled.main`
   flex: 1 1 auto;
   overflow: auto;
+  margin-top: 30px;
 
   @media (min-width: ${props => props.theme.breakpoints.tablet}) {
     margin-right: 15px;

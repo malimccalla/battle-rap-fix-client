@@ -16,6 +16,8 @@ import Login from './auth/Login';
 import Register from './auth/Register';
 import CreateArtist from './Artists/CreateArtist';
 
+import Layout from '../components/Layout';
+
 const isAuthenticated = () => {
   const token = localStorage.getItem('token');
   const refreshToken = localStorage.getItem('refreshToken');
@@ -68,15 +70,17 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 
 const Routes = () => (
   <Router>
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/artists" exact component={Artists} />
-      <PrivateRoute path="/artists/new" exact component={CreateArtist} />
-      <Route path="/leagues" exact component={Leagues} />
-      <PublicRoute path="/login" exact component={Login} />
-      <PublicRoute path="/register" exact component={Register} />
-      <PrivateRoute path="/dashboard" exact component={Dashboard} />
-    </Switch>
+    <Layout>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/artists" exact component={Artists} />
+        <PrivateRoute path="/artists/new" exact component={CreateArtist} />
+        <Route path="/leagues" exact component={Leagues} />
+        <PublicRoute path="/login" exact component={Login} />
+        <PublicRoute path="/register" exact component={Register} />
+        <PrivateRoute path="/dashboard" exact component={Dashboard} />
+      </Switch>
+    </Layout>
   </Router>
 );
 

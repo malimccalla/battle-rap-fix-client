@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'react-apollo';
 
-import Layout from '../../components/Layout';
 import Card from '../../components/Card';
 import Alert from '../../components/Alert';
 import { Container } from '../../components/common/Grid';
@@ -62,46 +61,44 @@ class CreateArtist extends Component {
     if (lastNameError) errorList.push(lastNameError);
 
     return (
-      <Layout>
-        <Container>
-          <Card width="500px">
-            <h2>Add Artist</h2>
-            <form onSubmit={this.onSubmit}>
-              <Input
-                type="text"
-                name="stageName"
-                value={stageName}
-                placeholder="Stage Name"
-                onChange={this.onChange}
-                error={`${!!stageNameError}`}
-              />
-              <Input
-                type="text"
-                name="firstName"
-                value={firstName}
-                placeholder="First Name"
-                onChange={this.onChange}
-                error={`${!!firstNameError}`}
-              />
-              <Input
-                type="text"
-                name="lastName"
-                value={lastName}
-                placeholder="Last Name"
-                onChange={this.onChange}
-                error={`${!!lastNameError}`}
-              />
-              <InputButton primary type="submit" value="Create Artist" />
-            </form>
-            {errorList.length ? (
-              <Alert
-                errors={errorList}
-                message="There was some errors with your submission"
-              />
-            ) : null}
-          </Card>
-        </Container>
-      </Layout>
+      <Container>
+        <Card width="500px">
+          <h2>Add Artist</h2>
+          <form onSubmit={this.onSubmit}>
+            <Input
+              type="text"
+              name="stageName"
+              value={stageName}
+              placeholder="Stage Name"
+              onChange={this.onChange}
+              error={`${!!stageNameError}`}
+            />
+            <Input
+              type="text"
+              name="firstName"
+              value={firstName}
+              placeholder="First Name"
+              onChange={this.onChange}
+              error={`${!!firstNameError}`}
+            />
+            <Input
+              type="text"
+              name="lastName"
+              value={lastName}
+              placeholder="Last Name"
+              onChange={this.onChange}
+              error={`${!!lastNameError}`}
+            />
+            <InputButton primary type="submit" value="Create Artist" />
+          </form>
+          {errorList.length ? (
+            <Alert
+              errors={errorList}
+              message="There was some errors with your submission"
+            />
+          ) : null}
+        </Card>
+      </Container>
     );
   }
 }
