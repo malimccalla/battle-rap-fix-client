@@ -50,6 +50,10 @@ const Wrapper = styled.div`
 const Main = styled.main`
   flex: 1 1 auto;
   overflow: auto;
+
+  @media (min-width: ${props => props.theme.breakpoints.tablet}) {
+    margin-right: 15px;
+  }
 `;
 
 Layout.propTypes = {
